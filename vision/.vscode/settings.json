@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/tianbot/ROSworkspace/realsense_ws/devel/lib/python3/dist-packages",
+        "/home/tianbot/ROSworkspace/mapping_and_navigation_ws/devel/lib/python3/dist-packages",
+        "/home/tianbot/ROSworkspace/bigwhite_ws/devel/lib/python3/dist-packages",
+        "/home/tianbot/study_ws/devel/lib/python3/dist-packages",
+        "/home/tianbot/manipulation_ws/devel/lib/python3/dist-packages",
+        "/home/tianbot/tianbot_mini_ws/devel/lib/python3/dist-packages",
+        "/home/tianbot/tianbot_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}
