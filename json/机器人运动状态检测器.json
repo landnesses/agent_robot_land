@@ -1,0 +1,493 @@
+﻿{
+  "nodes": [
+    {
+      "nodeId": "pluginInput",
+      "name": "workflow:template.plugin_start",
+      "intro": "workflow:intro_plugin_input",
+      "avatar": "core/workflow/template/workflowStart",
+      "flowNodeType": "pluginInput",
+      "showStatus": false,
+      "position": {
+        "x": -66.20321962788873,
+        "y": -102.9960890757572
+      },
+      "version": "481",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "nodeId": "pluginOutput",
+      "name": "common:core.module.template.self_output",
+      "intro": "workflow:intro_custom_plugin_output",
+      "avatar": "core/workflow/template/pluginOutput",
+      "flowNodeType": "pluginOutput",
+      "showStatus": false,
+      "position": {
+        "x": 2311.185736404227,
+        "y": 0.7201680825712344
+      },
+      "version": "481",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "nodeId": "pluginConfig",
+      "name": "common:core.module.template.system_config",
+      "intro": "",
+      "avatar": "core/workflow/template/systemConfig",
+      "flowNodeType": "pluginConfig",
+      "position": {
+        "x": -66.20321962788873,
+        "y": -507.4492766698604
+      },
+      "version": "4811",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "nodeId": "eSRyRcbc6lcO",
+      "name": "HTTP 请求",
+      "intro": "可以发出一个 HTTP 请求，实现更为复杂的操作（联网搜索、数据库查询等）",
+      "avatar": "core/workflow/template/httpRequest",
+      "flowNodeType": "httpRequest468",
+      "showStatus": true,
+      "position": {
+        "x": 650.3896510104302,
+        "y": -485.8171795436844
+      },
+      "version": "481",
+      "inputs": [
+        {
+          "key": "system_addInputParam",
+          "renderTypeList": [
+            "addInputParam"
+          ],
+          "valueType": "dynamic",
+          "label": "",
+          "required": false,
+          "description": "common:core.module.input.description.HTTP Dynamic Input",
+          "customInputConfig": {
+            "selectValueTypeList": [
+              "string",
+              "number",
+              "boolean",
+              "object",
+              "arrayString",
+              "arrayNumber",
+              "arrayBoolean",
+              "arrayObject",
+              "arrayAny",
+              "any",
+              "chatHistory",
+              "datasetQuote",
+              "dynamic",
+              "selectDataset",
+              "selectApp"
+            ],
+            "showDescription": false,
+            "showDefaultValue": true
+          },
+          "valueDesc": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpMethod",
+          "renderTypeList": [
+            "custom"
+          ],
+          "valueType": "string",
+          "label": "",
+          "value": "GET",
+          "required": true,
+          "valueDesc": "",
+          "description": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpTimeout",
+          "renderTypeList": [
+            "custom"
+          ],
+          "valueType": "number",
+          "label": "",
+          "value": 30,
+          "min": 5,
+          "max": 600,
+          "required": true,
+          "valueDesc": "",
+          "description": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpReqUrl",
+          "renderTypeList": [
+            "hidden"
+          ],
+          "valueType": "string",
+          "label": "",
+          "description": "common:core.module.input.description.Http Request Url",
+          "placeholder": "https://api.ai.com/getInventory",
+          "required": false,
+          "value": "http://192.168.1.100:5000",
+          "valueDesc": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpHeader",
+          "renderTypeList": [
+            "custom"
+          ],
+          "valueType": "any",
+          "value": [],
+          "label": "",
+          "description": "common:core.module.input.description.Http Request Header",
+          "placeholder": "common:core.module.input.description.Http Request Header",
+          "required": false,
+          "valueDesc": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpParams",
+          "renderTypeList": [
+            "hidden"
+          ],
+          "valueType": "any",
+          "value": [
+            {
+              "key": "action",
+              "type": "string",
+              "value": "ask_status"
+            }
+          ],
+          "label": "",
+          "required": false,
+          "valueDesc": "",
+          "description": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpJsonBody",
+          "renderTypeList": [
+            "hidden"
+          ],
+          "valueType": "any",
+          "value": "",
+          "label": "",
+          "required": false,
+          "valueDesc": "",
+          "description": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpFormBody",
+          "renderTypeList": [
+            "hidden"
+          ],
+          "valueType": "any",
+          "value": [],
+          "label": "",
+          "required": false,
+          "valueDesc": "",
+          "description": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "key": "system_httpContentType",
+          "renderTypeList": [
+            "hidden"
+          ],
+          "valueType": "string",
+          "value": "json",
+          "label": "",
+          "required": false,
+          "valueDesc": "",
+          "description": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        }
+      ],
+      "outputs": [
+        {
+          "id": "error",
+          "key": "error",
+          "label": "workflow:request_error",
+          "description": "HTTP请求错误信息，成功时返回空",
+          "valueType": "object",
+          "type": "static"
+        },
+        {
+          "id": "httpRawResponse",
+          "key": "httpRawResponse",
+          "required": true,
+          "label": "workflow:raw_response",
+          "description": "HTTP请求的原始响应。只能接受字符串或JSON类型响应数据。",
+          "valueType": "any",
+          "type": "static"
+        },
+        {
+          "id": "system_addOutputParam",
+          "key": "system_addOutputParam",
+          "type": "dynamic",
+          "valueType": "dynamic",
+          "label": "输出字段提取",
+          "customFieldConfig": {
+            "selectValueTypeList": [
+              "string",
+              "number",
+              "boolean",
+              "object",
+              "arrayString",
+              "arrayNumber",
+              "arrayBoolean",
+              "arrayObject",
+              "arrayAny",
+              "any",
+              "chatHistory",
+              "datasetQuote",
+              "dynamic",
+              "selectDataset",
+              "selectApp"
+            ],
+            "showDescription": false,
+            "showDefaultValue": false
+          },
+          "description": "可以通过 JSONPath 语法来提取响应值中的指定字段",
+          "valueDesc": ""
+        },
+        {
+          "id": "wuFCvROVj91Y",
+          "valueType": "string",
+          "type": "dynamic",
+          "key": "status",
+          "label": "status"
+        }
+      ]
+    },
+    {
+      "nodeId": "dm1Hnim1IbmW",
+      "name": "指定回复",
+      "intro": "该模块可以直接回复一段指定的内容。常用于引导、提示。非字符串内容传入时，会转成字符串进行输出。",
+      "avatar": "core/workflow/template/reply",
+      "flowNodeType": "answerNode",
+      "position": {
+        "x": 1348.1221248762404,
+        "y": -332.85929661957215
+      },
+      "version": "481",
+      "inputs": [
+        {
+          "key": "text",
+          "renderTypeList": [
+            "textarea",
+            "reference"
+          ],
+          "valueType": "any",
+          "required": true,
+          "label": "回复的内容",
+          "description": "common:core.module.input.description.Response content",
+          "placeholder": "common:core.module.input.description.Response content",
+          "value": "{{$eSRyRcbc6lcO.wuFCvROVj91Y$}}",
+          "valueDesc": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "nodeId": "dHVsgDgqjxAB",
+      "name": "判断器",
+      "intro": "根据一定的条件，执行不同的分支。",
+      "avatar": "core/workflow/template/ifelse",
+      "flowNodeType": "ifElseNode",
+      "showStatus": true,
+      "position": {
+        "x": 1360.1221248762404,
+        "y": 506.8111325037629
+      },
+      "version": "481",
+      "inputs": [
+        {
+          "key": "ifElseList",
+          "renderTypeList": [
+            "hidden"
+          ],
+          "valueType": "any",
+          "label": "",
+          "value": [
+            {
+              "condition": "AND",
+              "list": [
+                {
+                  "variable": [
+                    "eSRyRcbc6lcO",
+                    "wuFCvROVj91Y"
+                  ],
+                  "condition": "notEqual",
+                  "value": "not_on_move"
+                }
+              ]
+            }
+          ],
+          "valueDesc": "",
+          "description": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        }
+      ],
+      "outputs": [
+        {
+          "id": "ifElseResult",
+          "key": "ifElseResult",
+          "label": "workflow:judgment_result",
+          "valueType": "string",
+          "type": "static",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "nodeId": "g994ZMMluZPE",
+      "name": "流程等待",
+      "intro": "让工作流等待指定时间后运行",
+      "avatar": "core/workflow/template/sleep",
+      "flowNodeType": "pluginModule",
+      "showStatus": true,
+      "position": {
+        "x": 244.0718377165913,
+        "y": 812.7925451116982
+      },
+      "version": "4817",
+      "inputs": [
+        {
+          "key": "system_forbid_stream",
+          "renderTypeList": [
+            "switch"
+          ],
+          "valueType": "boolean",
+          "label": "禁用流输出",
+          "description": "强制设置嵌套运行的应用，均以非流模式运行",
+          "value": false,
+          "valueDesc": "",
+          "debugLabel": "",
+          "toolDescription": ""
+        },
+        {
+          "renderTypeList": [
+            "numberInput",
+            "reference"
+          ],
+          "selectedTypeIndex": 0,
+          "valueType": "number",
+          "canEdit": false,
+          "key": "延迟时长",
+          "label": "延迟时长",
+          "description": "需要暂停的时间，单位毫秒",
+          "defaultValue": 1000,
+          "list": [
+            {
+              "label": "",
+              "value": ""
+            }
+          ],
+          "maxFiles": 5,
+          "canSelectFile": true,
+          "canSelectImg": true,
+          "required": true,
+          "toolDescription": "需要暂停的时间，单位毫秒",
+          "max": 300000,
+          "min": 1,
+          "value": 1000,
+          "valueDesc": "",
+          "debugLabel": ""
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "static",
+          "key": "result",
+          "valueType": "any",
+          "label": "result",
+          "description": "",
+          "valueDesc": ""
+        }
+      ],
+      "pluginId": "community-delay"
+    }
+  ],
+  "edges": [
+    {
+      "source": "pluginInput",
+      "target": "eSRyRcbc6lcO",
+      "sourceHandle": "pluginInput-source-right",
+      "targetHandle": "eSRyRcbc6lcO-target-left"
+    },
+    {
+      "source": "eSRyRcbc6lcO",
+      "target": "dm1Hnim1IbmW",
+      "sourceHandle": "eSRyRcbc6lcO-source-right",
+      "targetHandle": "dm1Hnim1IbmW-target-left"
+    },
+    {
+      "source": "eSRyRcbc6lcO",
+      "target": "dHVsgDgqjxAB",
+      "sourceHandle": "eSRyRcbc6lcO-source-right",
+      "targetHandle": "dHVsgDgqjxAB-target-left"
+    },
+    {
+      "source": "g994ZMMluZPE",
+      "target": "eSRyRcbc6lcO",
+      "sourceHandle": "g994ZMMluZPE-source-top",
+      "targetHandle": "eSRyRcbc6lcO-target-left"
+    },
+    {
+      "source": "dHVsgDgqjxAB",
+      "target": "g994ZMMluZPE",
+      "sourceHandle": "dHVsgDgqjxAB-source-IF",
+      "targetHandle": "g994ZMMluZPE-target-right"
+    },
+    {
+      "source": "dHVsgDgqjxAB",
+      "target": "pluginOutput",
+      "sourceHandle": "dHVsgDgqjxAB-source-ELSE",
+      "targetHandle": "pluginOutput-target-left"
+    }
+  ],
+  "chatConfig": {
+    "welcomeText": "",
+    "variables": [],
+    "questionGuide": {
+      "open": false,
+      "model": "gpt-4o-mini",
+      "customPrompt": ""
+    },
+    "ttsConfig": {
+      "type": "web"
+    },
+    "whisperConfig": {
+      "open": false,
+      "autoSend": false,
+      "autoTTSResponse": false
+    },
+    "chatInputGuide": {
+      "open": false,
+      "textList": [],
+      "customUrl": ""
+    },
+    "instruction": "",
+    "autoExecute": {
+      "open": false,
+      "defaultPrompt": ""
+    },
+    "_id": "67f73147ce8be96fd98ac62c"
+  }
+}
