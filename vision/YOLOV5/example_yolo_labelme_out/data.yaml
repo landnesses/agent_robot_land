@@ -1,7 +1,0 @@
-train:  E:/Liu_pro/YOLOV5/example_yolo_labelme_out/train/images
-val:    E:/Liu_pro/YOLOV5/example_yolo_labelme_out/valid/images
-test:   E:/Liu_pro/YOLOV5/example_yolo_labelme_out/test/images
-
-# Classes
-nc: 1
-names: ['apple']  # class names
