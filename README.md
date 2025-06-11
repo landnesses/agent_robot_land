@@ -88,10 +88,10 @@ sudo docker-compose up -d
 2.vision文件夹中请自行复制一个yolov5文件夹进去（拿任意开源的yolov5分支就可以，不过这样的话模型要自备）
 
 3.要让全模块运行，请执行以下步骤：
-  3.1 fastgpt框架下agent_develop与运动状态检测器中，http通信模块指地址设置正确（其实只要改ip地址就可以了，端口是py程序里定下来的）
-  3.2 core 区域中，运行http_channel(中央通道) 与 flask_test（旁路视觉通道） 
-  3.3 vision 区域中，运行apple_detector_node 与 detect_command(这是因为我的设备不行，需要用command来设定1s识别一次，实际上设备好的话可以实时识别，小改detector_node 即可)
-  3.4 tf 区域中运行 tf_converter_node 进行视觉坐标系转化（摄像头坐标系---->base_link坐标系） 
+  3.1 fastgpt框架下agent_develop与运动状态检测器中，http通信模块指地址设置正确（其实只要改ip地址就可以了，端口是py程序里定下来的） 
+  3.2 core 区域中，运行http_channel(中央通道) 与 flask_test（旁路视觉通道）  
+  3.3 vision 区域中，运行apple_detector_node 与 detect_command(这是因为我的设备不行，需要用command来设定1s识别一次，实际上设备好的话可以实时识别，小改detector_node 即可)  
+  3.4 tf 区域中运行 tf_converter_node 进行视觉坐标系转化（摄像头坐标系---->base_link坐标系）   
   3.5 neuro 区域中运行 ros_position_node 进行神经网络求解 启动move_group_result_filter_forwarder进行转发 配合我在学校机器人工控机上编写的bigwhite_control_land 进行命令的转发与执行，否则机子上的老代码会导致重复执行
 
 
