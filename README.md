@@ -71,6 +71,18 @@ sudo docker-compose up -d
 
 ##
 
+## 项目目录结构
+
+| 文件夹 | 描述 |
+| ------ | ---- |
+| `core` | 机械臂与机器人控制相关的示例脚本和测试代码，包含基于 MoveIt 的控制接口以及 HTTP 通信等实现 |
+| `docker` | Docker 环境配置与 compose 文件，用于快速部署依赖环境 |
+| `json` | FastGpt 工作流的示例 JSON 配置文件 |
+| `neuro` | 机械臂逆运动学神经网络模型及训练、验证脚本 |
+| `tf` | ROS TF 坐标变换相关的节点与工具脚本 |
+| `vision` | 视觉识别模块，集成了 YOLOv5 等目标检测代码 |
+
+
 
 
 
