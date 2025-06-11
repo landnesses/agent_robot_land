@@ -32,7 +32,7 @@ git clone https://github.com/tianbot/tianbot_ai_agents.git
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 systemctl enable --now docker
 # 安装 docker-compose
-curl -L https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose（若失效则可以搜索最新的docker-compose安装方法）
 chmod +x /usr/local/bin/docker-compose
 # 验证安装
 docker -v
@@ -55,7 +55,7 @@ sudo docker-compose up -d
 ## 部署工作流
 1.首先配置通信后端，这里以oneapi为例，登录oneapi，在localhost:3001页面，使用name:root passwd:123456 登录，之后使用 云端api/本地模型 进行渠道的配置，再生成相应的令牌，这样FastGpt就可以使用生成的令牌与llm通信了  
 2.使用name:root passwd:1234 然后登录fastgpt后，进入工作台，在右上角点击新建工作流，点击进入一个空白工作流，在左上角名字旁边的拓展栏中选择导入json，将下载下来的channel.json 导入后，便可以调试、编辑工作流。  
-
+3.由于框架特性，第一次加载agent主框架时，agent下调用的机器人状态检测器子模块需要删除然后再次重新导入子模块。
 
 
 
@@ -87,7 +87,12 @@ sudo docker-compose up -d
 
 2.vision文件夹中请自行复制一个yolov5文件夹进去（拿任意开源的yolov5分支就可以，不过这样的话模型要自备）
 
-3.
+3.要让全模块运行，请执行以下步骤：
+  3.1 fastgpt框架下agent_develop与运动状态检测器中，http通信模块指地址设置正确（其实只要改ip地址就可以了，端口是py程序里定下来的）
+  3.2 core 区域中，运行http_channel(中央通道) 与 flask_test（旁路视觉通道） 
+  3.3 vision 区域中，运行apple_detector_node 与 detect_command(这是因为我的设备不行，需要用command来设定1s识别一次，实际上设备好的话可以实时识别，小改detector_node 即可)
+  3.4 tf 区域中运行 tf_converter_node 进行视觉坐标系转化（摄像头坐标系---->base_link坐标系） 
+  3.5 neuro 区域中运行 ros_position_node 进行神经网络求解 启动move_group_result_filter_forwarder进行转发 配合我在学校机器人工控机上编写的bigwhite_control_land 进行命令的转发与执行，否则机子上的老代码会导致重复执行
 
 
 
