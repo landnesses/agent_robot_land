@@ -82,7 +82,10 @@ sudo docker-compose up -d
 | `tf` | ROS TF 坐标变换相关的节点与工具脚本 |
 | `vision` | 视觉识别模块，集成了 YOLOv5 等目标检测代码 |
 
+## 使用说明
+1.所有的代码文件夹下都有requirements.txt描述各自所需环境
 
+2.vision中
 
 
 
