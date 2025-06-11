@@ -85,7 +85,9 @@ sudo docker-compose up -d
 ## 使用说明
 1.所有的代码文件夹下都有requirements.txt描述各自所需环境
 
-2.vision中
+2.vision文件夹中请自行复制一个yolov5文件夹进去（拿任意开源的yolov5分支就可以，不过这样的话模型要自备）
+
+3.
 
 
 
