@@ -88,6 +88,7 @@ sudo docker-compose up -d
 2.vision文件夹中请自行复制一个yolov5文件夹进去（拿任意开源的yolov5分支就可以，不过这样的话模型要自备）
 
 3.要让全模块运行，请执行以下步骤：
+
   3.1 fastgpt框架下agent_develop与运动状态检测器中，http通信模块指地址设置正确（其实只要改ip地址就可以了，端口是py程序里定下来的）
   
   3.2 core 区域中，运行http_channel(中央通道) 与 flask_test（旁路视觉通道）  
